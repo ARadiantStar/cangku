@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+</head>
+<body>
+<b>当漪涟一滴一点出现</b><br><br>
+<i>我的明天叫做昨天</i><br><br>
+<i>当世界向前，我会在原地，流连~</i><br><br>
+
+<audio id="bgMusic" style="margin: auto; position: absolute; top: 0px; left:0px; bottom: 0px; right: 0px; min-width: 465px; width: 50%; height: 74px; max-height: 100%;" src="./I love you ,xilian.mp3" controls="">
+</audio>
+
+<script>
+// 尝试自动播放
+document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('bgMusic');
+    
+    // 尝试播放音频
+    var playPromise = audio.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.catch(function(error) {
+            console.log("自动播放被阻止，需要用户交互");
+            // 显示提示让用户点击
+            document.body.onclick = function() {
+                audio.play();
+                document.body.onclick = null;
+            };
+        });
+    }
+});
+</script>
+
+</body>
+</html>
